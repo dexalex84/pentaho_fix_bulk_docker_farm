@@ -1,7 +1,7 @@
 # Docker-compose farm used to test PDI-16254
 In this farm you create:
-1) "DB_SOURCE" MSSQL latest version from docker hub
-2) "DB_DEST" PostreSQL latest version from docker hub
+1) "DB_SOURCE" MSSQL latest version from docker hub (accessible by port from outer net <docker_host>:1433) 
+2) "DB_DEST" PostreSQL latest version from docker hub (accessible by port from outer net <docker_host>:5432)
 3) "APP_PENTAHO_DI" Pentaho-Kettle dist used to RUN packages
 
 # Installation
