@@ -1,0 +1,30 @@
+  version: "3"
+  services: 
+    db_source:
+      image: microsoft/mssql-server-linux
+      container_name: db_source
+      ports:
+       - 1433:1433
+      environment:
+       - ACCEPT_EULA=Y
+       - SA_PASSWORD=q1w2e3r4t5QWERTY!
+
+    db_dest:
+      restart: always
+      image: postgres:latest
+      container_name: db_dest
+      ports:
+        - "5432:5432"
+      environment:
+        - DEBUG=false
+
+    app_pentaho_di:
+      build: 
+        context: .
+        dockerfile: Dockerfile
+      container_name: app_pentaho_di
+      ports:
+        - "5050"
+      tty: true
+      image: app_pentaho_di
+
