@@ -9,6 +9,7 @@ In this farm you create:
 ```git clone https://github.com/dexalex84/pentaho_fix_bulk_docker_farm.git``` 
 2) create folder "distr"
 3) put INTO folder "distr" pentaho-kettle files (root PDI folder with files "spoon.sh", etc):
+ ```
  distr\
        Carte.bat
        carte.sh
@@ -28,15 +29,18 @@ In this farm you create:
        system
        ui
        yarn.sh
+```
 4) run ```docker-compose up -d``` (docker must be installed)
 5) wait 5-10 sec to MSSQL server is configured
-6) run "./prepare_environment.sh"
-7) check source DB and dest DB by "./select_source.sh" and "./select_dest.sh"
-8) run "./start_insert.sh" - that will:
+6) run ```./prepare_environment.sh```
+7) check source DB and dest DB by ```./select_source.sh``` and ```./select_dest.sh```
+8) run ```./start_insert.sh``` - that will:
+```
                                     a. insert ALL fields into target db_dest - if u use FIXED pentaho_kettle build
                                     b. fail with error - if u use 6.1 UNFIXED version from sourceforge
                                     c. insert 1 row but datetime and bytea fields will be EMPTY if u use 7.0 UNFIXED version from soureforge
-9) check source DB and dest DB by "select_source.sh" and "select_dest.sh" one more time
+```
+9) check source DB and dest DB by ```./select_source.sh``` and ```./select_dest.sh``` one more time
 
 ## Links
    http://jira.pentaho.com/browse/PDI-16254
